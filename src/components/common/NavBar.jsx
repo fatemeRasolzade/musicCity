@@ -105,7 +105,7 @@ const NavBar = ({location ,userInfo, logOut}) => {
         </div>
         <div class="d-flex align-items-center">
           {location.pathname === "/dashboard" ? null :
-            <SearchBar color="pink"/>
+            <SearchBar color="text-white"/>
           }
         </div>
       </div>
