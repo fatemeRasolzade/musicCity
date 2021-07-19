@@ -1,6 +1,6 @@
 const initialState = {
-    musics: {tracks:{hits:[]}},
-    musicInfo : {images: {} ,share: {}, }
+    musics: [],
+    musicInfo : {}
 }
 
 export const musicsReducer = (state=initialState, action) =>{

@@ -40,16 +40,16 @@ const Dashboard = ({musics, musicInfo, getMusics}) => {
                             : null}
                        
                         {musics.map(music => (
-                            <div key={music.track.key} class="card mb-3" >
+                            <div key={music.subtitle_id} class="card mb-3" >
                                 <div class="row g-0 details-container">
                                     <div class="col-md-4">
-                                        <img src={music.track.images.coverarthq} class="img-fluid rounded-start" alt="..."/>
+                                        <img src={music.album_coverart_350x350} class="img-fluid rounded-start" alt="..."/>
                                     </div>
                                     <div class="col-md-8">
                                         <div class="card-body">
-                                            <h5 class="card-title">{music.track.subtitle}</h5>
-                                            <p class="card-text">{music.track.title}</p>
-                                            <p class="card-text">{music.track.share.text}</p>
+                                            <h5 class="card-title">{music.artist_name}</h5>
+                                            <p class="card-text">{music.track_name}</p>
+                                           
                                         </div>
                                     </div>
                                     <div class="show-details">
@@ -60,13 +60,13 @@ const Dashboard = ({musics, musicInfo, getMusics}) => {
                         ))}
                     </div>
                 </div>
-                <div className="col-6 my-5 mx-3 shadow-sm">
+                {/* <div className="col-6 my-5 mx-3 shadow-sm">
                     <div className="text-center mt-5">
-                        <img src={musicInfo.images.coverarthq} />
+                        <img src={musicInfo.header_image_url} />
                     </div>
-                    <h5 class="card-title pt-3">{musicInfo.subtitle}</h5>
+                    <h5 class="card-title pt-3">{musicInfo.primary_artist.name}</h5>
                     <p class="card-text">{musicInfo.title}</p>
-                    <p class="card-text">{musicInfo.share.text}</p>
+                    <p class="card-text">{musicInfo.full_title}</p>
                     <div class="d-grid">
                         <audio controls>
                             <source src="horse.ogg" type="audio/ogg"/>
@@ -80,14 +80,14 @@ const Dashboard = ({musics, musicInfo, getMusics}) => {
                         جزئیات
                     </Button>
                     </div>
-                </div>
+                </div> */}
             </div>
         </div>
     )
 }
 const mapStateToProps = (state) => ({
-    musics: state.Musics.musics.tracks.hits,
-    musicInfo: state.Musics.musicInfo
+    musics: state.Musics.musics
+    // musicInfo: state.Musics.musicInfo
 })
 
 export default connect(mapStateToProps,{getMusics})(Dashboard)
